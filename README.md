@@ -4,11 +4,11 @@ A Windows Phone 7/8 for the 30the Chaos Communication Congress (30C3)
 
 Screenshots
 =======
-[![Screenshot1](https://raw.github.com/baurmatt/WP-30C3/master/screenshots/Screenshot_01.png)[(#Screenshot1)
-[![Screenshot2](https://raw.github.com/baurmatt/WP-30C3/master/screenshots/Screenshot_02.png)[(#Screenshot2)
-[![Screenshot3](https://raw.github.com/baurmatt/WP-30C3/master/screenshots/Screenshot_03.png)[(#Screenshot3)
-[![Screenshot4](https://raw.github.com/baurmatt/WP-30C3/master/screenshots/Screenshot_04.png)[(#Screenshot4)
-[![Screenshot5](https://raw.github.com/baurmatt/WP-30C3/master/screenshots/Screenshot_05.png)[(#Screenshot5)
+![Screenshot1](https://raw.github.com/baurmatt/WP-30C3/master/screenshots/Screenshot_01.png)
+![Screenshot2](https://raw.github.com/baurmatt/WP-30C3/master/screenshots/Screenshot_02.png)
+![Screenshot3](https://raw.github.com/baurmatt/WP-30C3/master/screenshots/Screenshot_03.png)
+![Screenshot4](https://raw.github.com/baurmatt/WP-30C3/master/screenshots/Screenshot_04.png)
+![Screenshot5](https://raw.github.com/baurmatt/WP-30C3/master/screenshots/Screenshot_05.png)
 
 ToDo
 =======
