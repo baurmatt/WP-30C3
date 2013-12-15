@@ -1,0 +1,36 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="_30C3.SpeakersOverview"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Style="{StaticResource TransitionPageStyle}"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="False">
+    
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="#0099ab">
+        <TextBlock HorizontalAlignment="Left" Height="63" TextWrapping="Wrap" Text="Speakers" VerticalAlignment="Top" Width="480" TextAlignment="Center" Margin="0,12,0,0" FontSize="48"/>
+        <ListBox x:Name="LB_Speakers" HorizontalAlignment="Left" ItemContainerStyle="{StaticResource ListBoxItemStyle}" Height="720" Margin="0,80,0,0" VerticalAlignment="Top" Width="480" toolkit:TiltEffect.IsTiltEnabled="True">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Height="80" Width="480" Tag="{Binding ID}" Tap="Grid_Speaker_Tap">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="80" Margin="6" Source="{Binding Picture}" />
+                        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="10,20,0,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" Width="380" FontSize="26.667"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+ </phone:PhoneApplicationPage>

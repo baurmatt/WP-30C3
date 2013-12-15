@@ -1,0 +1,95 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="_30C3.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Style="{StaticResource TransitionPageStyle}"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696"
+    xmlns:local="clr-namespace:_30C3"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="False">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="#0099ab">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="81"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,8,0,0">
+            <TextBlock x:Name="Title" Text="30C3" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center" FontSize="25.5" Margin="12,4,24,0" Height="35" >
+                <TextBlock.Foreground>
+                    <SolidColorBrush Color="White"/>
+                </TextBlock.Foreground>
+            </TextBlock>
+            <TextBlock x:Name="SubTitle" Text="30th Chaos Communication Congress" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center" FontSize="20" Margin="12,0,24,0" Height="66" >
+                <TextBlock.Foreground>
+                    <SolidColorBrush Color="White"/>
+                </TextBlock.Foreground>
+            </TextBlock>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,26,12,-20">
+            <ListBox toolkit:TiltEffect.IsTiltEnabled="True" ItemContainerStyle="{StaticResource ListBoxItemStyle}" Margin="12,0">
+                <Grid x:Name="Day1_Grid" Height="210" Width="210" Margin="0,0,6,12" Background="#007280" Tap="Grid_Day_Tap">
+                    <Grid Margin="12,95,12,70">
+                        <TextBlock Text="day" Margin="-18,0,0,0" TextAlignment="Center" FontSize="28" FontWeight="Bold" />
+                        <TextBlock Text="{Binding Index}" Margin="57,0,0,0" TextAlignment="Center" FontSize="28" FontWeight="Bold" />
+                    </Grid>
+                    <TextBlock Text="{Binding Date, StringFormat='yyyy-MM-dd'}" TextAlignment="Right" FontSize="18" Margin="12,170,12,12" />
+                </Grid>
+                <Grid x:Name="Day2_Grid" Height="210" Width="210" Margin="6,0,0,12" Background="#007280" Tap="Grid_Day_Tap">
+                    <Grid Margin="12,95,12,70">
+                        <TextBlock Text="day" Margin="-18,0,0,0" TextAlignment="Center" FontSize="28" FontWeight="Bold" />
+                        <TextBlock Text="{Binding Index}" Margin="57,0,0,0" TextAlignment="Center" FontSize="28" FontWeight="Bold" />
+                    </Grid>
+                    <TextBlock Text="{Binding Date, StringFormat='yyyy-MM-dd'}" TextAlignment="Right" FontSize="18" Margin="12,170,12,12" />
+                </Grid>
+                <Grid x:Name="Day3_Grid" Height="210" Width="210" Margin="0,0,6,12" Background="#007280" Tap="Grid_Day_Tap">
+                    <Grid Margin="12,95,12,70">
+                        <TextBlock Text="day" Margin="-18,0,0,0" TextAlignment="Center" FontSize="28" FontWeight="Bold" />
+                        <TextBlock Text="{Binding Index}" Margin="57,0,0,0" TextAlignment="Center" FontSize="28" FontWeight="Bold" />
+                    </Grid>
+                    <TextBlock Text="{Binding Date, StringFormat='yyyy-MM-dd'}" TextAlignment="Right" FontSize="18" Margin="12,170,12,12" />
+                </Grid>
+                <Grid x:Name="Day4_Grid" Height="210" Width="210" Margin="6,0,0,12" Background="#007280" Tap="Grid_Day_Tap">
+                    <Grid Margin="12,95,12,70">
+                        <TextBlock Text="day" Margin="-18,0,0,0" TextAlignment="Center" FontSize="28" FontWeight="Bold" />
+                        <TextBlock Text="{Binding Index}" Margin="57,0,0,0" TextAlignment="Center" FontSize="28" FontWeight="Bold" />
+                    </Grid>
+                    <TextBlock Text="{Binding Date, StringFormat='yyyy-MM-dd'}" TextAlignment="Right" FontSize="18" Margin="12,170,12,12" />
+                </Grid>
+                <Grid x:Name="Speakers_Grid" Height="210" Width="210" Margin="0,0,6,12" Background="#007280" Tap="Grid_Speaker_Tap">
+                    <TextBlock Text="speaker" TextAlignment="Center" Margin="12,95,12,0" FontSize="28" FontWeight="Bold" />
+                    <TextBlock Text="" TextAlignment="Right" FontSize="18" Margin="12,170,12,12" />
+                </Grid>
+                <Grid x:Name="Events_Grid" Height="210" Width="210" Margin="6,0,0,12" Background="#007280" Tap="Grid_Events_Tap">
+                    <TextBlock Text="events" TextAlignment="Center" Margin="12,95,12,0" FontSize="28" FontWeight="Bold" />
+                    <TextBlock Text="" TextAlignment="Right" FontSize="18" Margin="12,170,12,12" />
+                </Grid>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <toolkit:WrapPanel />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+        </Grid>
+    </Grid>
+ 
+    <!--ApplicationBar-->
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" Mode="Minimized" BackgroundColor="#007280">
+            <shell:ApplicationBarIconButton IconUri="/images/dark/appbar.feature.settings.rest.png" Text="settings" Click="ApplicationBarIconButtonSettings_Click"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>

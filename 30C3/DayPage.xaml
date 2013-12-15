@@ -1,0 +1,60 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="_30C3.DayPage"
+    xml:lang="en-us"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:me="clr-namespace:_30C3"
+    Style="{StaticResource TransitionPageStyle}"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="False">
+
+    <phone:PhoneApplicationPage.Resources>
+        <me:LongTextConverter x:Key="LongTextConverter"/>
+        <me:PersonsStringConverter x:Key="PersonsStringConverter"/>
+    </phone:PhoneApplicationPage.Resources>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="#0099ab">
+        <!--Pivot Control-->
+        <controls:Pivot ItemsSource="{Binding Rooms}">
+            <controls:Pivot.HeaderTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                </DataTemplate>
+            </controls:Pivot.HeaderTemplate>
+            <controls:Pivot.ItemTemplate>
+                <DataTemplate>
+                    <ListBox ItemsSource="{Binding Events}" ItemContainerStyle="{StaticResource ListBoxItemStyle}" toolkit:TiltEffect.IsTiltEnabled="True">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderThickness="0,0,0,1" Height="76" Width="456" BorderBrush="{StaticResource PhoneContrastBackgroundBrush}">
+                                    <Grid Tag="{Binding ID}" Height="Auto" Width="457" Margin="0,0,-1,7" Tap="Grid_Tap">
+                                        <TextBlock Tag="tb_Title" Text="{Binding Title, Converter={StaticResource LongTextConverter}, ConverterParameter=30}" Margin="70,8,0,18" TextWrapping="NoWrap" FontSize="24" />
+                                        <TextBlock Tag="tb_Speaker" Text="{Binding Persons, Converter={StaticResource PersonsStringConverter}}" Margin="70,0,0,3" TextWrapping="NoWrap" FontSize="14.667" Height="22" VerticalAlignment="Bottom" />
+                                        <Border BorderBrush="{StaticResource PhoneContrastBackgroundBrush}" BorderThickness="0,0,1,1" HorizontalAlignment="Left" Width="65" Margin="0,0,0,-8">
+                                            <Grid Height="Auto" Width="Auto" Margin="0,0,-1,7" VerticalAlignment="Stretch">
+                                                <TextBlock Tag="tb_Start" Text="{Binding Start, StringFormat='HH:mm'}" TextWrapping="Wrap" TextAlignment="Center" Height="24" VerticalAlignment="Top" FontSize="18.667" />
+                                                <TextBlock HorizontalAlignment="Stretch" Margin="0,18,0,30" TextWrapping="Wrap" Text="-" Width="Auto" TextAlignment="Center" FontWeight="Bold" Height="20" d:LayoutOverrides="VerticalAlignment"/>
+                                                <TextBlock Tag="tb_End" Text="{Binding End, StringFormat='HH:mm'}" TextWrapping="Wrap" TextAlignment="Center" Height="24" VerticalAlignment="Bottom" Margin="0,0,0,-1" FontSize="18.667"/>
+                                            </Grid>
+                                        </Border>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </DataTemplate>
+            </controls:Pivot.ItemTemplate>
+        </controls:Pivot>
+    </Grid>    
+</phone:PhoneApplicationPage>
