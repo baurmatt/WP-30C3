@@ -108,9 +108,10 @@
             
             <TextBlock Text="Last time downloaded:" Grid.Row="2" Opacity="0.6" Margin="12,24,0,0"/>
             <TextBlock Text="{Binding LastTimeDownloaded, Source={StaticResource AppSettings}, StringFormat=yyyy-MM-dd hh:mm tt}" Grid.Row="2" Margin="12,52,0,0" FontSize="26"/>
-            
+<!--
             <TextBlock Text="Speaker picture download" Grid.Row="3" Opacity="0.6" Margin="12,24,0,0"/>
             <Button x:Name="btDownloadSpeakerPics" Content="Download!" Grid.Row="3" Margin="0,52,0,0" Click="btDownloadSpeakerPics_Click"/>
+-->
         </Grid>
     </Grid>
 
